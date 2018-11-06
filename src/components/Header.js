@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import './Header.css'
+import "./Header.css";
 
 class Header extends React.Component {
-  render () {
+  render() {
     return (
-      <div className='header'>
+      <div className="header">
         <h3>Reservabot</h3>
       </div>
-    )
+    );
   }
 }
 

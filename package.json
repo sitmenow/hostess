@@ -17,11 +17,8 @@
     }
   },
   "lint-staged": {
-    "*src/**/*.{js,css}": [
-      "prettier --write",
-      "./node_modules/.bin/eslint ./src/",
-      "git add"
-    ]
+    "src/**/*.{js,css}": "prettier --write",
+    "src/**/*.js": ["./node_modules/.bin/eslint", "git add"]
   },
   "dependencies": {
     "lint-staged": "^8.0.4",

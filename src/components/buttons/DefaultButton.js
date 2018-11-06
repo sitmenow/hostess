@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
-import './DefaultButton.css';
+import "./DefaultButton.css";
 
-export default ({ text, style }) => {
-  return (
-    <button className={style}> {text} </button>
-  );
+const DefaultButton = ({ text, style }) => (
+  <button className={style}> {text} </button>
+);
+
+DefaultButton.propTypes = {
+  text: PropTypes.string,
+  style: PropTypes.string
 };
+
+export default DefaultButton;

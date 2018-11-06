@@ -1,5 +1,5 @@
 .reservations {
-  background: #FFFFFF;
+  background: #ffffff;
   padding-bottom: 22px;
   padding-right: 32px;
 }
@@ -15,12 +15,9 @@
   padding-top: 24px;
   padding-bottom: 12px;
 
-  color: #6B7D99;
+  color: #6b7d99;
 }
 
-.column {
-  line-height: 52px;
-}
 .column-name {
   flex: 0 0 35%;
 }
@@ -34,6 +31,5 @@
 }
 
 .column-button {
-  padding-top: 10px;
   flex: 0 0 20%;
 }

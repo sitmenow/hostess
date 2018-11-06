@@ -9,11 +9,16 @@
   /* padding-bottom: 12px; */
 
   height: auto;
-  
 
   color: #000000;
 }
 
+.column-entry {
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+
 .table-entry:not(:last-child) {
-  border-bottom: 1px solid #E8ECF2;
+  border-bottom: 1px solid #e8ecf2;
 }
