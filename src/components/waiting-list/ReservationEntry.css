@@ -1,0 +1,19 @@
+.table-entry {
+  display: flex;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 14px;
+  /* padding-top: 12px; */
+  /* padding-bottom: 12px; */
+
+  height: auto;
+  
+
+  color: #000000;
+}
+
+.table-entry:not(:last-child) {
+  border-bottom: 1px solid #E8ECF2;
+}

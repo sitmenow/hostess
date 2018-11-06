@@ -1,0 +1,23 @@
+{
+  "name": "sitmenow-hostess",
+  "version": "0.0.1",
+  "description": "Web application to manage reservations",
+  "main": "src/index.js",
+  "repository": "https://github.com/sitmenow/hostess",
+  "author": "stimenow",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "cssnano": "^4.1.7"
+  }
+}

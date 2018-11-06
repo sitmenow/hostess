@@ -1,0 +1,39 @@
+.reservations {
+  background: #FFFFFF;
+  padding-bottom: 22px;
+  padding-right: 32px;
+}
+
+.table-header {
+  display: flex;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding-top: 24px;
+  padding-bottom: 12px;
+
+  color: #6B7D99;
+}
+
+.column {
+  line-height: 52px;
+}
+.column-name {
+  flex: 0 0 35%;
+}
+
+.column-people {
+  flex: 0 0 20%;
+}
+
+.column-phone {
+  flex: 0 0 25%;
+}
+
+.column-button {
+  padding-top: 10px;
+  flex: 0 0 20%;
+}

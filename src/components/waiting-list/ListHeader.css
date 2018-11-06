@@ -1,0 +1,28 @@
+.reservations-header {
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.reservations-header div {
+  flex: 0 0 50%;
+  height: auto;
+  padding: 24px 0px;
+}
+
+.reservations-header button {
+  margin-right: 24px;
+  float: right;
+}
+
+.reservations-header span {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 18px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  color: #000000;
+}
+

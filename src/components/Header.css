@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  padding-left: 42px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  background: rgba(220, 225, 234, 0.62);
+  margin-bottom: 50px;
+}
+
+.banner h3 {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 18px;
+  color: #3751FF;
+}
