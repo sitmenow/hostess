@@ -16,7 +16,7 @@ const RecordEntry = ({ title, amount }) => (
 
 RecordEntry.propTypes = {
   title: PropTypes.string,
-  amount: PropTypes.number
+  amount: PropTypes.string
 };
 
 export default RecordEntry;
