@@ -19,11 +19,11 @@ class Reservations extends React.Component {
   getData() {
     //TODO: May be posible to iterate only when component loads
     const { data } = this.state;
-    return data.map((reservationData, index) => {
-      reservationData.index = index;
-      reservationData.removeEntry = this.removeEntry;
+    return data.map((reservation, index) => {
+      reservation.index = index;
+      reservation.removeEntry = this.removeEntry;
       // eslint-disable-next-line react/jsx-key
-      return <ReservationEntry {...reservationData} />;
+      return <ReservationEntry {...reservation} />;
     });
   }
 
