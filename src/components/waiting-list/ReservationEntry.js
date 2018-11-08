@@ -1,35 +1,34 @@
-import React from 'react';
+import React from "react";
 
-import DefaultButton from '../buttons/DefaultButton';
-import './ReservationEntry.css';
-
+import DefaultButton from "../buttons/DefaultButton";
+import ReservationMenu from "./ReservationMenu";
+import "./ReservationEntry.css";
 
 class ReservationEntry extends React.Component {
   constructor(props) {
     super(props);
-    this.name = props.name;
-    this.people = props.people;
-    this.phone = props.phone;
   }
 
   render() {
+    const { name, people, phone, ...menuProps } = this.props;
     return (
       <div className="table-entry">
-        <div className="column column-name">
-          <span>{this.name}</span>
+        <div className="column-entry column-name">
+          <span>{name}</span>
         </div>
-        <div className="column column-people">
-          <span>{this.people}</span>
+        <div className="column-entry column-people">
+          <span>{people}</span>
         </div>
-        <div className="column column-phone">
-          <span>{this.phone}</span>
+        <div className="column-entry column-phone">
+          <span>{phone}</span>
         </div>
-        <div className="column column-button">
-          <DefaultButton text='Pasar a Mesa' style='green'/>
+        <div className="column-entry column-button">
+          <DefaultButton text="Pasar a Mesa" style="green" />
+          <ReservationMenu {...menuProps} />
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default ReservationEntry;
