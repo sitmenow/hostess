@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // May need
-import ListContainer from "./components/waiting-list/ListContainer";
+import ListContainer from "./components/reservations/ListContainer";
 import Header from "./components/Header";
 
 import "./index.css";

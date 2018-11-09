@@ -1,6 +1,6 @@
 import React from "react";
 
-import ListHeader from "./ListHeader";
+import ReservationHeader from "./ReservationHeader";
 import Records from "./Records";
 import Reservations from "./Reservations";
 
@@ -8,7 +8,7 @@ import "./ListContainer.css";
 
 const ListContainer = () => (
   <div className="reservation-container">
-    <ListHeader />
+    <ReservationHeader />
     <Records />
     <Reservations />
   </div>
