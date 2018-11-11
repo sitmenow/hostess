@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import DefaultButton from "../buttons/DefaultButton";
-import Modal from "./Modal";
+import DefaultButton from "../../buttons/DefaultButton";
+import Modal from "./ModalAddReservation";
 
-import "./ReservationHeader.css";
+import "./Header.css";
 
-class ReservationHeader extends React.Component {
+class Header extends React.Component {
   constructor() {
     super();
 
@@ -47,8 +47,8 @@ class ReservationHeader extends React.Component {
   }
 }
 
-ReservationHeader.propTypes = {
+Header.propTypes = {
   addReservation: PropTypes.func
 };
 
-export default ReservationHeader;
+export default Header;

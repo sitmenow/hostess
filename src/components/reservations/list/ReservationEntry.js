@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import DefaultButton from "../buttons/DefaultButton";
+import DefaultButton from "../../buttons/DefaultButton";
 import "./ReservationEntry.css";
 
 const ReservationEntry = props => {
@@ -27,7 +27,7 @@ const ReservationEntry = props => {
 
 ReservationEntry.propTypes = {
   name: PropTypes.string,
-  people: PropTypes.int,
+  people: PropTypes.string,
   phone: PropTypes.string,
   menu: PropTypes.object
 };

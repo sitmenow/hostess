@@ -1,14 +1,14 @@
 import React from "react";
 
-import ReservationHeader from "./ReservationHeader";
-import Records from "./Records";
-import Reservations from "./Reservations";
+import ListHeader from "./header/Header";
+import Records from "./records/Records";
+import Reservations from "./list/Reservations";
 
-import "./ListContainer.css";
+import "./WaitingList.css";
 
 const ListContainer = props => (
   <div className="reservation-container">
-    <ReservationHeader addReservation={props.addReservation} />
+    <ListHeader addReservation={props.addReservation} />
     <Records {...props.records} />
     <Reservations
       reservations={props.reservations}

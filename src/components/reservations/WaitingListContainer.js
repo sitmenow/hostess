@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import ListContainer from "./ListContainer";
+import WaitingList from "./WaitingList";
 import { addReservation, cancelReservation } from "../../actions";
 
 const mapStateToProps = state => ({
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListContainer);
+)(WaitingList);

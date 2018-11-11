@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./Modal.css";
+import "./ModalAddReservation.css";
 
-const Modal = ({ onClose, action }) => {
+const ModalAddReservation = ({ onClose, action }) => {
   let name, people, phone;
 
   const onSubmit = event => {
@@ -45,9 +45,9 @@ const Modal = ({ onClose, action }) => {
   );
 };
 
-Modal.propTypes = {
+ModalAddReservation.propTypes = {
   action: PropTypes.func,
   onClose: PropTypes.func
 };
 
-export default Modal;
+export default ModalAddReservation;

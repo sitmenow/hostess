@@ -1,5 +1,6 @@
 import Data from "../mocks/ReservationsMock";
 
+//Add testdata only when runnning locally
 const initialState = {
   active: [...Data],
   records: {
@@ -21,7 +22,7 @@ const reservations = (state = initialState, action) => {
       return {
         records: {
           ...records,
-          local: (records.local += 1)
+          local: records.local + 1
         },
         active: [
           ...active,

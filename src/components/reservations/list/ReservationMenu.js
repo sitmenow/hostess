@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import dropDown from "../../images/drop-down.svg";
+import dropDown from "../../../images/drop-down.svg";
 import "./ReservationMenu.css";
 
 class ReservationMenu extends React.Component {

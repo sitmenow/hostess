@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "./reducers";
 
-import ReservationContainer from "./components/reservations/ReservationContainer";
+import WaitingListContainer from "./components/reservations/WaitingListContainer";
 import Header from "./components/Header";
 
 import "./index.css";
@@ -17,7 +17,7 @@ class App extends React.Component {
       <Provider store={store}>
         <div>
           <Header />
-          <ReservationContainer />
+          <WaitingListContainer />
         </div>
       </Provider>
     );
