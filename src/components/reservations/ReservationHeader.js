@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import DefaultButton from "../buttons/DefaultButton";
 import Modal from "./Modal";
@@ -38,10 +39,16 @@ class ReservationHeader extends React.Component {
         <div className="button-container" onClick={this.openModal}>
           <DefaultButton text="Nuevo Registro" style="blue" />
         </div>
-        {this.state.isModalOpen && <Modal action={this.closeModal} />}
+        {this.state.isModalOpen && (
+          <Modal onClose={this.closeModal} action={this.props.addReservation} />
+        )}
       </div>
     );
   }
 }
+
+ReservationHeader.propTypes = {
+  addReservation: PropTypes.func
+};
 
 export default ReservationHeader;

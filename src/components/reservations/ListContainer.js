@@ -6,11 +6,14 @@ import Reservations from "./Reservations";
 
 import "./ListContainer.css";
 
-const ListContainer = () => (
+const ListContainer = props => (
   <div className="reservation-container">
-    <ReservationHeader />
-    <Records />
-    <Reservations />
+    <ReservationHeader addReservation={props.addReservation} />
+    <Records {...props.records} />
+    <Reservations
+      reservations={props.reservations}
+      cancelReservation={props.cancelReservation}
+    />
   </div>
 );
 

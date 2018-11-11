@@ -1,34 +1,35 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import DefaultButton from "../buttons/DefaultButton";
-import ReservationMenu from "./ReservationMenu";
 import "./ReservationEntry.css";
 
-class ReservationEntry extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { name, people, phone, ...menuProps } = this.props;
-    return (
-      <div className="table-entry">
-        <div className="column-entry column-name">
-          <span>{name}</span>
-        </div>
-        <div className="column-entry column-people">
-          <span>{people}</span>
-        </div>
-        <div className="column-entry column-phone">
-          <span>{phone}</span>
-        </div>
-        <div className="column-entry column-button">
-          <DefaultButton text="Pasar a Mesa" style="green" />
-          <ReservationMenu {...menuProps} />
-        </div>
+const ReservationEntry = props => {
+  const { name, people, phone, menu } = props;
+  return (
+    <div className="table-entry">
+      <div className="column-entry column-name">
+        <span>{name}</span>
       </div>
-    );
-  }
-}
+      <div className="column-entry column-people">
+        <span>{people}</span>
+      </div>
+      <div className="column-entry column-phone">
+        <span>{phone}</span>
+      </div>
+      <div className="column-entry column-button">
+        <DefaultButton text="Pasar a Mesa" style="green" />
+        {menu}
+      </div>
+    </div>
+  );
+};
+
+ReservationEntry.propTypes = {
+  name: PropTypes.string,
+  people: PropTypes.int,
+  phone: PropTypes.string,
+  menu: PropTypes.object
+};
 
 export default ReservationEntry;

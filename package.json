@@ -9,7 +9,8 @@
   "scripts": {
     "start": "parcel ./index.html",
     "build": "parcel build ./index.html",
-    "pretty": "prettier --write \"src/**/*.js\""
+    "pretty": "prettier --write \"src/**/*.js\"",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -18,16 +19,33 @@
   },
   "lint-staged": {
     "src/**/*.{js,css}": "prettier --write",
-    "src/**/*.js": ["./node_modules/.bin/eslint", "git add"]
+    "src/**/*.js": [
+      "./node_modules/.bin/eslint",
+      "git add"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
   },
   "dependencies": {
+    "jest": "^23.6.0",
     "lint-staged": "^8.0.4",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "cssnano": "^4.1.7",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",

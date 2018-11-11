@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { addReservation } from "../../actions";
 
 import "./Modal.css";
 
-const Modal = ({ action }) => {
+const Modal = ({ onClose, action }) => {
   let name, people, phone;
 
   const onSubmit = event => {
@@ -14,9 +13,8 @@ const Modal = ({ action }) => {
       return;
     }
 
-    // console.log(name.value, people.value, phone.value);
-    // action(addReservation(name.value, people.value, phone.value));
     action(name.value, people.value, phone.value);
+    onClose();
   };
 
   return (
@@ -48,7 +46,8 @@ const Modal = ({ action }) => {
 };
 
 Modal.propTypes = {
-  action: PropTypes.func
+  action: PropTypes.func,
+  onClose: PropTypes.func
 };
 
 export default Modal;

@@ -36,9 +36,7 @@ class ReservationMenu extends React.Component {
   }
 
   cancelReservation() {
-    const { removeEntry, index } = this.props;
-    removeEntry(index);
-    window.alert(`Reservation ${index} cancelled`);
+    this.props.cancelReservation();
     this.handleClick();
   }
 
@@ -54,8 +52,7 @@ class ReservationMenu extends React.Component {
         {this.state.menuOpen && (
           <div className="menu-container">
             <div className="menu-item" onClick={this.cancelReservation}>
-              {" "}
-              Cancelar registro{" "}
+              Cancelar registro
             </div>
           </div>
         )}
@@ -65,8 +62,7 @@ class ReservationMenu extends React.Component {
 }
 
 ReservationMenu.propTypes = {
-  removeEntry: PropTypes.func,
-  index: PropTypes.number
+  cancelReservation: PropTypes.func
 };
 
 export default ReservationMenu;
