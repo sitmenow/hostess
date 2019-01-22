@@ -2,34 +2,41 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import DefaultButton from "../../buttons/DefaultButton";
+import Timer from "./Timer";
 import "./Turn.css";
 
-class Turn extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Turn = props => {
+  const { _id, plates, completeTurn, expireTurn } = props;
 
-  render() {
-    const { plate, time } = this.props;
-    return (
-      <div className="row row-entry">
-        <div className="col-md-4 column-entry">
-          <span>{plate}</span>
-        </div>
-        <div className="col-md-4 column-entry">
-          <span>{time}</span>
-        </div>
-        <div className="col-md-4 column-entry">
-          <DefaultButton text="Despachado" style="green" />
-        </div>
+  const completeWithId = () => completeTurn(_id);
+
+  const expireWithId = () => expireTurn(_id);
+
+  return (
+    <div className="row row-entry">
+      <div className="col-md-4 column-entry">
+        <span>{plates}</span>
       </div>
-    );
-  }
-}
+      <div className="col-md-4 column-entry">
+        <Timer onTime={expireWithId} />
+      </div>
+      <div className="col-md-4 column-entry">
+        <DefaultButton
+          text="Despachado"
+          style="green"
+          onClick={completeWithId}
+        />
+      </div>
+    </div>
+  );
+};
 
 Turn.propTypes = {
-  plate: PropTypes.string,
-  time: PropTypes.string
+  _id: PropTypes.string,
+  plates: PropTypes.string,
+  time: PropTypes.string,
+  completeTurn: PropTypes.func,
+  expireTurn: PropTypes.func
 };
 
 export default Turn;

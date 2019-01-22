@@ -1,19 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "./reducers";
 
-// May need
 import DashboardContainer from "./components/dashboard/DashboardContainer.js";
 import Header from "./components/Header";
 
 import "./index.css";
 
+const store = createStore(rootReducer);
+
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
-        <DashboardContainer />
-      </div>
+      <Provider store={store}>
+        <div>
+          <Header />
+          <DashboardContainer />
+        </div>
+      </Provider>
     );
   }
 }

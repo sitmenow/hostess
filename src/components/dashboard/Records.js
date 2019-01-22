@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./Records.css";
 
 const RecordEntry = ({ title, value }) => (
-  <div className="record-entry">
+  <div className="col-md-4 record-entry">
     <div>
       <span className="title">{title}</span>
     </div>
@@ -14,18 +14,23 @@ const RecordEntry = ({ title, value }) => (
   </div>
 );
 
-const Records = () => (
-  <div className="records">
-    <RecordEntry title="Tiempo de espera promedio" value="30 minutos" />
-    <RecordEntry title="Registros presenciales" value="30" />
-    <RecordEntry title="Registros online" value="10" />
-    <RecordEntry title="Registros cancelados" value="5" />
+const Records = ({ avgWaitTime, completed, expired }) => (
+  <div className="row">
+    <RecordEntry title="Tiempo de espera promedio" value={avgWaitTime} />
+    <RecordEntry title="Turnos completados" value={completed} />
+    <RecordEntry title="Registros expirados" value={expired} />
   </div>
 );
 
 RecordEntry.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string
+};
+
+Records.propTypes = {
+  avgWaitTime: PropTypes.string,
+  completed: PropTypes.string,
+  expired: PropTypes.string
 };
 
 export default Records;

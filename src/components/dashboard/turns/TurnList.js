@@ -1,54 +1,49 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Turn from "./Turn";
-import Data from "../../../mocks/ReservationsMock";
 
 import "./TurnList.css";
 
-class TurnList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      turns: Data
-    };
+const TurnList = props => {
+  const { activeTurns, completeTurn, expireTurn } = props;
 
-    this.getTurns = this.getTurns.bind(this);
-    this.completeTurn = this.completeTurn.bind(this);
-  }
-
-  getTurns() {
-    const { turns } = this.state;
-    return turns.map((turn, index) => {
+  const getTurns = () => {
+    return activeTurns.map((turn, index) => {
       turn.index = index;
-      turn.completeTurn = this.completeTurn;
+      //notify from showing in redux
       // eslint-disable-next-line react/jsx-key
-      return <Turn {...turn} />;
+      return (
+        <Turn
+          key={turn._id}
+          completeTurn={completeTurn}
+          expireTurn={expireTurn}
+          {...turn}
+        />
+      );
     });
-  }
+  };
 
-  completeTurn(index) {
-    const { turns } = this.state;
-    turns.splice(index, 1);
-    this.setState({ turns });
-    //fetch new turns
-  }
-
-  render() {
-    return (
-      <div className="turn-list">
-        <div className="row list-header">
-          <div className="col-md-4">
-            <span>PLACAS</span>
-          </div>
-          <div className="col-md-4">
-            <span>TIEMPO ELEGIBLE</span>
-          </div>
-          <div className="col-md-4" />
+  return (
+    <div className="turn-list">
+      <div className="row list-header">
+        <div className="col-md-4">
+          <span>PLACAS</span>
         </div>
-        {this.getTurns()}
+        <div className="col-md-4">
+          <span>TIEMPO ELEGIBLE</span>
+        </div>
+        <div className="col-md-4" />
       </div>
-    );
-  }
-}
+      {getTurns()}
+    </div>
+  );
+};
+
+TurnList.propTypes = {
+  activeTurns: PropTypes.array,
+  completeTurn: PropTypes.func,
+  expireTurn: PropTypes.func
+};
 
 export default TurnList;

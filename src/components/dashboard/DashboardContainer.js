@@ -1,17 +1,19 @@
-import React from "react";
+import { connect } from "react-redux";
 
-import Header from "./Header";
-import Records from "./Records";
-import TurnList from "./turns/TurnList.js";
+import Dashboard from "./Dashboard";
+import { completeTurn, expireTurn } from "../../actions";
 
-import "./DashboardContainer.css";
+const mapStateToProps = state => ({
+  activeTurns: state.turns.active,
+  records: state.turns.records
+});
 
-const DashboardContainer = () => (
-  <div className="dashboard-container">
-    <Header />
-    <Records />
-    <TurnList />
-  </div>
-);
+const mapDispatchToProps = dispatch => ({
+  completeTurn: id => dispatch(completeTurn(id)),
+  expireTurn: id => dispatch(expireTurn(id))
+});
 
-export default DashboardContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);
