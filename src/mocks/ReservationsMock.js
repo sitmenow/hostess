@@ -1,7 +1,7 @@
 const Data = [
   {
-    name: "Jose Antonio Perez Gomez",
-    people: 2,
+    plate: "Jose Antonio Perez Gomez",
+    time: 2,
     phone: "33 12 23 43 45",
     key: 1
   },

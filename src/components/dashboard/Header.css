@@ -1,21 +1,21 @@
-.reservations-header {
-  background: #FFFFFF;
+.dashboard-header {
+  background: #ffffff;
   display: flex;
   justify-content: space-evenly;
 }
 
-.reservations-header div {
+.dashboard-header div {
   flex: 0 0 50%;
   height: auto;
   padding: 24px 0px;
 }
 
-.reservations-header button {
+.dashboard-header button {
   margin-right: 24px;
   float: right;
 }
 
-.reservations-header span {
+.dashboard-header span {
   font-family: Rubik;
   font-style: normal;
   font-weight: bold;
@@ -25,4 +25,3 @@
   padding-bottom: 28px;
   color: #000000;
 }
-

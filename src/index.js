@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // May need
-import ListContainer from "./components/waiting-list/ListContainer";
+import DashboardContainer from "./components/dashboard/DashboardContainer.js";
 import Header from "./components/Header";
 
 import "./index.css";
@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <ListContainer />
+        <DashboardContainer />
       </div>
     );
   }

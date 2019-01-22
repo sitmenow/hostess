@@ -7,8 +7,8 @@
   "author": "stimenow",
   "license": "MIT",
   "scripts": {
-    "start": "parcel ./index.html",
-    "build": "parcel build ./index.html",
+    "start": "./node_modules/.bin/parcel ./index.html",
+    "build": "./node_modules/.bin/parcel build ./index.html",
     "pretty": "prettier --write \"src/**/*.js\""
   },
   "husky": {
@@ -18,10 +18,14 @@
   },
   "lint-staged": {
     "src/**/*.{js,css}": "prettier --write",
-    "src/**/*.js": ["./node_modules/.bin/eslint", "git add"]
+    "src/**/*.js": [
+      "./node_modules/.bin/eslint",
+      "git add"
+    ]
   },
   "dependencies": {
     "lint-staged": "^8.0.4",
+    "parcel": "^1.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"

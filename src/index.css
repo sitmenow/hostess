@@ -1,5 +1,10 @@
 body {
-  background: #E5E5E5;
+  background: #e5e5e5;
   margin: 0;
   padding: 0;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 10px;
 }

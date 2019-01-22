@@ -1,0 +1,13 @@
+.turn-list {
+  background: #ffffff;
+  padding-bottom: 22px;
+  padding-right: 32px;
+}
+
+.list-header {
+  text-transform: uppercase;
+  padding-top: 24px;
+  padding-bottom: 12px;
+
+  color: #6b7d99;
+}

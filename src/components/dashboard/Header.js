@@ -2,10 +2,10 @@ import React from "react";
 
 import DefaultButton from "../buttons/DefaultButton";
 
-import "./ListHeader.css";
+import "./Header.css";
 
-const ListHeader = () => (
-  <div className="reservations-header">
+const Header = () => (
+  <div className="dashboard-header">
     <div>
       <span>Lista de espera</span>
     </div>
@@ -15,4 +15,4 @@ const ListHeader = () => (
   </div>
 );
 
-export default ListHeader;
+export default Header;
