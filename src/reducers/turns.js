@@ -1,4 +1,13 @@
 import Data from "../mocks/ReservationsMock";
+
+import {
+  NOTIFY_TURN_ACTIVE,
+  COMPLETE_TURN,
+  EXPIRE_TURN,
+  RECEIVE_TURNS,
+  TURNS_RECEIVED
+} from "../actions/actionTypes";
+
 //Add testdata only when runnning locally
 const initialState = {
   active: [...Data],
@@ -44,6 +53,9 @@ const turns = (state = initialState, action) => {
           ...state.active.slice(index + 1)
         ]
       };
+
+    case TURNS_RECEIVED:
+      console.log(action);
 
     default:
       return state;

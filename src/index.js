@@ -1,17 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import thunkMiddleware from "redux-thunk";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
+import { getTurns } from "./actions";
 
 import DashboardContainer from "./components/dashboard/DashboardContainer.js";
 import Header from "./components/Header";
 
 import "./index.css";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 class App extends React.Component {
+  componentDidMount() {
+    store.dispatch(getTurns());
+  }
   render() {
     return (
       <Provider store={store}>
