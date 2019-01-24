@@ -16,4 +16,5 @@
   display: flex;
   align-items: center;
   height: 52px;
+  justify-content: center;
 }

@@ -4,7 +4,8 @@ import thunkMiddleware from "redux-thunk";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
-import { getTurns } from "./actions";
+import { getTurnsIfNeeded } from "./actions";
+import { saveState } from "./localStorage";
 
 import DashboardContainer from "./components/dashboard/DashboardContainer.js";
 import Header from "./components/Header";
@@ -13,10 +14,15 @@ import "./index.css";
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
+store.subscribe(() => {
+  saveState(store.getState());
+});
+
 class App extends React.Component {
   componentDidMount() {
-    store.dispatch(getTurns());
+    store.dispatch(getTurnsIfNeeded());
   }
+
   render() {
     return (
       <Provider store={store}>

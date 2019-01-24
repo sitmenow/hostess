@@ -3,3 +3,5 @@ export const COMPLETE_TURN = "COMPLETE_TURN";
 export const EXPIRE_TURN = "EXPIRE_TURN";
 export const RECEIVE_TURNS = "RECEIVE_TURNS";
 export const TURNS_RECEIVED = "TURNS_RECEIVED";
+export const RESTORE_STATE = "RESTORE_STATE";
+export const REMOVE_TURN = "REMOVE_TURN";
