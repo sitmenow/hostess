@@ -32,12 +32,39 @@ export const turnsReceived = turns => ({
   turns
 });
 
+//ACTIION REDUCERS
+const retryIfNeeded = turns => {
+  return turns;
+};
+
+const notifyTurns = (current, incoming) => {
+  current = [];
+
+  const newTurns = incoming.filter(turn => !current[turn._id]);
+
+  const notifiedTurns = newTurns.map(turn =>
+    GasAPI.notifyTurnReceived(turn._id)
+  );
+
+  return Promise.all(notifiedTurns).then(result => {
+    //TODO update filter criteria
+    const failed = result.filter(turn => turn);
+    if (failed.length) {
+      //TODO Retry fetch
+    }
+    const toReturn = newTurns.filter(turn => !failed[turn._id]);
+    return current.concat(toReturn);
+  });
+};
+
 export const getTurns = () => {
-  return function(dispatch) {
+  return function(dispatch, getState) {
     dispatch(receiveTurns());
 
     GasAPI.getTurns()
-      .then(TurnConsistency.updateTurns)
-      .then(turnsReceived);
+      // .then(TurnConsistency.normalize)
+      .then(turns => notifyTurns(getState(), turns))
+      .then(retryIfNeeded)
+      .then(turns => dispatch(turnsReceived(turns)));
   };
 };

@@ -1,4 +1,4 @@
-import Data from "../mocks/ReservationsMock";
+// import Data from "../mocks/ReservationsMock";
 
 import {
   NOTIFY_TURN_ACTIVE,
@@ -10,7 +10,7 @@ import {
 
 //Add testdata only when runnning locally
 const initialState = {
-  active: [...Data],
+  active: [],
   records: {
     avgWaitTime: 0,
     completed: 0,
@@ -19,14 +19,14 @@ const initialState = {
 };
 
 const turns = (state = initialState, action) => {
+  console.log(action);
   const { id } = action;
   const { active, records } = state;
-
-  // eslint-disable-next-line
-  const index = active.findIndex(res => res._id === id);
+  let index;
 
   switch (action.type) {
     case "COMPLETE_TURN":
+      index = active.findIndex(res => res._id === id);
       //May need to post and fetch next turns
       return {
         records: {
@@ -41,7 +41,7 @@ const turns = (state = initialState, action) => {
       };
 
     case "EXPIRE_TURN":
-      //May need to post and fetch next turns
+      index = active.findIndex(res => res._id === id);
       return {
         records: {
           ...records,
@@ -55,7 +55,10 @@ const turns = (state = initialState, action) => {
       };
 
     case TURNS_RECEIVED:
-      console.log(action);
+      return {
+        records,
+        active: action.turns
+      };
 
     default:
       return state;

@@ -24,13 +24,13 @@ const Records = ({ avgWaitTime, completed, expired }) => (
 
 RecordEntry.propTypes = {
   title: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.number
 };
 
 Records.propTypes = {
-  avgWaitTime: PropTypes.string,
-  completed: PropTypes.string,
-  expired: PropTypes.string
+  avgWaitTime: PropTypes.number,
+  completed: PropTypes.number,
+  expired: PropTypes.number
 };
 
 export default Records;
