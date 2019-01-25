@@ -1,0 +1,26 @@
+.reservations-header {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-around;
+}
+
+.reservations-header > div {
+  height: auto;
+  padding: 24px 0px;
+}
+
+.button-container button {
+  margin-right: 24px;
+  float: right;
+}
+
+.header-title {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 11px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  color: #646464;
+}

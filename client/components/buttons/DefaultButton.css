@@ -1,0 +1,30 @@
+button.green {
+  background: #2DC661;
+  border-radius: 3px;
+}
+
+button.blue {
+  background: #3751FF;
+  border-radius: 3px;
+}
+
+button.red {
+  background: #FFFFFF;
+  border: 1.5px solid #CB1F1F;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #CB1F1F;
+}
+
+button {
+  width: 106px;
+  height: 31px;
+
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 12px;
+
+  color: #FFFFFF;
+}
