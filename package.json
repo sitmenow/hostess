@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel ./index.html",
+    "start:client": "parcel ./index-client.html",
     "build": "parcel build ./index.html",
     "pretty": "prettier --write \"src/**/*.js\"",
     "test": "jest"
