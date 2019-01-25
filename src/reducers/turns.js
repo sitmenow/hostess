@@ -5,7 +5,9 @@ import {
   COMPLETE_TURN,
   EXPIRE_TURN,
   RECEIVE_TURNS,
-  TURNS_RECEIVED
+  TURNS_RECEIVED,
+  RESTORE_STATE,
+  REMOVE_TURN
 } from "../actions/actionTypes";
 
 //Add testdata only when runnning locally
@@ -24,9 +26,10 @@ const turns = (state = initialState, action) => {
   const { active, records } = state;
   let index;
 
+  //TODO split this reducer into multiple
   switch (action.type) {
-    case "COMPLETE_TURN":
-      index = active.findIndex(res => res._id === id);
+    case REMOVE_TURN:
+      index = active.findIndex(turn => turn._id === id);
       //May need to post and fetch next turns
       return {
         records: {
@@ -35,13 +38,12 @@ const turns = (state = initialState, action) => {
         },
         active: [
           ...state.active.slice(0, index),
-
           ...state.active.slice(index + 1)
         ]
       };
 
-    case "EXPIRE_TURN":
-      index = active.findIndex(res => res._id === id);
+    case EXPIRE_TURN:
+      index = active.findIndex(turn => turn._id === id);
       return {
         records: {
           ...records,
@@ -49,7 +51,6 @@ const turns = (state = initialState, action) => {
         },
         active: [
           ...state.active.slice(0, index),
-
           ...state.active.slice(index + 1)
         ]
       };
@@ -57,7 +58,13 @@ const turns = (state = initialState, action) => {
     case TURNS_RECEIVED:
       return {
         records,
-        active: action.turns
+        active: [...state.active, ...action.newTurns]
+      };
+
+    case RESTORE_STATE:
+      return {
+        records: action.records,
+        active: action.active
       };
 
     default:

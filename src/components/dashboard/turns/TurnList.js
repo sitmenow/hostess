@@ -27,13 +27,13 @@ const TurnList = props => {
   return (
     <div className="turn-list">
       <div className="row list-header">
-        <div className="col-md-4">
+        <div className="col-md-4 column-entry">
           <span>PLACAS</span>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 column-entry">
           <span>TIEMPO ELEGIBLE</span>
         </div>
-        <div className="col-md-4" />
+        <div className="col-md-4 column-entry" />
       </div>
       {getTurns()}
     </div>

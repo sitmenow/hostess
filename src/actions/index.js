@@ -1,11 +1,13 @@
 import GasAPI from "../api";
-import TurnConsistency from "./TurnConsistency";
+import { loadState } from "../localStorage";
 import {
   NOTIFY_TURN_ACTIVE,
   COMPLETE_TURN,
   EXPIRE_TURN,
   RECEIVE_TURNS,
-  TURNS_RECEIVED
+  TURNS_RECEIVED,
+  RESTORE_STATE,
+  REMOVE_TURN
 } from "./actionTypes";
 
 export const notifyTurnActive = id => ({
@@ -13,8 +15,8 @@ export const notifyTurnActive = id => ({
   id
 });
 
-export const completeTurn = id => ({
-  type: COMPLETE_TURN,
+export const removeTurn = id => ({
+  type: REMOVE_TURN,
   id
 });
 
@@ -27,21 +29,41 @@ export const receiveTurns = () => ({
   type: RECEIVE_TURNS
 });
 
-export const turnsReceived = turns => ({
+export const turnsReceived = newTurns => ({
   type: TURNS_RECEIVED,
-  turns
+  newTurns
 });
+
+export const restoreState = ({ turns }) => ({
+  type: RESTORE_STATE,
+  records: turns.records,
+  active: turns.active
+});
+
+//TURN COMPLETED
+export const completeTurn = id => {
+  return (dispatch, getState) => {
+    dispatch(removeTurn(id));
+    getTurns(dispatch, getState);
+  };
+};
 
 //ACTIION REDUCERS
 const retryIfNeeded = turns => {
   return turns;
 };
 
-const notifyTurns = (current, incoming) => {
-  current = [];
+const turnsDiff = ({ turns }) => {
+  console.log("turns.active", turns.active);
+  const activeIds = turns.active.map(({ _id }) => _id);
+  const set = new Set(activeIds);
+  return incoming => {
+    console.log("turns.incoming", incoming);
+    return incoming.filter(turn => !set.has(turn._id));
+  };
+};
 
-  const newTurns = incoming.filter(turn => !current[turn._id]);
-
+const notifyTurns = newTurns => {
   const notifiedTurns = newTurns.map(turn =>
     GasAPI.notifyTurnReceived(turn._id)
   );
@@ -52,19 +74,32 @@ const notifyTurns = (current, incoming) => {
     if (failed.length) {
       //TODO Retry fetch
     }
-    const toReturn = newTurns.filter(turn => !failed[turn._id]);
-    return current.concat(toReturn);
+
+    return newTurns.filter(turn => !failed[turn._id]);
   });
 };
 
-export const getTurns = () => {
+export const getTurnsIfNeeded = () => {
   return function(dispatch, getState) {
-    dispatch(receiveTurns());
+    //TODO Split this function
 
-    GasAPI.getTurns()
-      // .then(TurnConsistency.normalize)
-      .then(turns => notifyTurns(getState(), turns))
-      .then(retryIfNeeded)
-      .then(turns => dispatch(turnsReceived(turns)));
+    const savedState = loadState();
+
+    //TODO add validation storage is not corrupted
+    if (savedState) {
+      dispatch(restoreState(savedState));
+    } else {
+      getTurns(dispatch, getState);
+    }
   };
+};
+
+const getTurns = (dispatch, getState) => {
+  dispatch(receiveTurns());
+  const newTurns = turnsDiff(getState());
+
+  GasAPI.getTurns()
+    .then(newTurns)
+    .then(notifyTurns)
+    .then(turns => dispatch(turnsReceived(turns)));
 };
