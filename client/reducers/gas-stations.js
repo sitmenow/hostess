@@ -5,12 +5,12 @@ const initialState = {
 const gasStations = (state = initialState, action) => {
   switch (action.type) {
     case 'get_gas_stations': {
-      const { payload } = action;
-      return { ...state, list: payload };
+      const { json } = action;
+      return { ...state, list: json };
     }
     case 'request_turn': {
-      const { payload } = action;
-      return { ...state, message: payload };
+      const { json } = action;
+      return { ...state, message: json };
     }
     default:
       return state;

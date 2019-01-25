@@ -35,10 +35,10 @@ class GasStations extends Component {
   }
 
   getEntries() {
-    return this.props.gasStations.map(gasStation => {
+    return this.props.gasStations.map((gasStation, i) => {
       return (
         <GasStationEntry
-          key={gasStation._id}
+          key={i}
           openRequestTurnModal={this.openModal}
           {...gasStation}
         />

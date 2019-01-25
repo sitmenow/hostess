@@ -2,14 +2,19 @@ import { GET_GAS_STATIONS, REQUEST_TURN } from "./types";
 
 const API_URL = 'https://sitmenow.herokuapp.com';
 
+export const getGasStationDetail = async (gasStation) => {
+  const item = await fetch(`${API_URL}/gasStations/${gasStation._id}`);
+  return item.json();
+}
+
 export const getGasStations = () => {
   return (dispatch) => {
     fetch(`${API_URL}/gasStations/`)
       .then(response => response.json())
-      .then((payload) => {
+      .then((json) => {
         dispatch({
           type: GET_GAS_STATIONS,
-          payload,
+          json: json.map(getGasStationDetail),
         });
       });
   }
@@ -27,11 +32,11 @@ export const requestTurn = (data) => {
         },
       })
       .then(response => response.json())
-      .then((payload) => {
+      .then((json) => {
         dispatch({
           type: REQUEST_TURN,
-          payload,
+          json,
         });
-      })
+      });
   };
 };
