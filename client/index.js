@@ -14,14 +14,12 @@ import "./index.css";
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 
-// const store = createStore(rootReducer);
-
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
         <div>
-          <Header title="miturno.com.mx"/>
+          <Header title="Mi Turno"/>
           <GasStationsListContainer />
         </div>
       </Provider>

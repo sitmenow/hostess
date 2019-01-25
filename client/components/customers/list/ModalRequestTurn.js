@@ -13,9 +13,7 @@ const ModalRequestTurn = ({ onClose, action, selectedGasStation }) => {
       alert('Todos los campos son requeridos');
       return;
     }
-
     action({
-      // name: name.value,
       plates: plates.value,
       email_address: email_address.value,
       gasStation: selectedGasStation,
@@ -37,12 +35,6 @@ const ModalRequestTurn = ({ onClose, action, selectedGasStation }) => {
           <span className="form-title">Reserva tu espacio</span>
           <span className="form-subtitle">{selectedGasStation._name}</span>
         </div>
-        {/* <div className="form-row">
-          <div className="form-input full-width">
-            <span className="input-title">Nombre Completo</span>
-            <input ref={node => (name = node)} type="text" name="name" />
-          </div>
-        </div> */}
         <div className="form-row">
           <div className="form-input full-width">
             <span className="input-title">Correo Electrónico</span>
@@ -57,7 +49,7 @@ const ModalRequestTurn = ({ onClose, action, selectedGasStation }) => {
         </div>
         <div className="modal-footer">
           {/* <DefaultButton onClickHandler={onClose} text="Cancelar" style="red" /> */}
-          <DefaultButton onClickHandler={action} text="Solicitar" style="blue" />
+          <DefaultButton onClickHandler={onSubmit} text="Solicitar" style="blue" />
         </div>
       </form>
     </div>
