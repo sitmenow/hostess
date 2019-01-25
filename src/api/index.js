@@ -1,7 +1,6 @@
 //TODO Add config file
-const BASE_URL = "https://sitmenow.herokuapp.com/";
-const TOKEN =
-  "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlJEaEVPVUZGTnpVMk5USkJPRGd4TkRVMU5qUTBPREkyTkVaRU9EY3dNVVk0TjBaR1JqWkRRUSJ9.eyJpc3MiOiJodHRwczovL3NpdG1lbm93LmF1dGgwLmNvbS8iLCJzdWIiOiJ2ZTVDMlllaDk5NVpjM05PZkd1MzZjdkxiM2c0UkRXTEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9taXR1cm5vLmNvbS5teC9hcGkvdjEvIiwiaWF0IjoxNTQ4MzEwMDIwLCJleHAiOjE1NDgzOTY0MjAsImF6cCI6InZlNUMyWWVoOTk1WmMzTk9mR3UzNmN2TGIzZzRSRFdMIiwic2NvcGUiOiJhd2FpdDp0dXJuIHJlamVjdDp0dXJuIHNlcnZlOnR1cm4gbGlzdDp0dXJucyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.mrRty65KnJcPLRuEHxpIBfnaXeZ7u_O8PdveeAe89m5oGxeMWtQyCQL4ZxSr-K0wlZ1VtR_TG-R_qU7Y3c0kwBDxMmdVT5w55HLMYGmULbBWRR-O_8GzqBbV6NIWjQYzf4gnsrZ7kDTE9hUz_pLH4iE5ZOTqnbKOYSawOnEdBXPvxqabfk-lz4ir5GvOzRvnKuO_QxAZ6fU-x-9bXIdN1FIqsIDKYdukVH-wt_GUZH4DQTvwRksBqaLnX85YiwNdF0uAWTdHtNiRhO-6aF-uzQipMk-bBxIKh7KvoCkK5vxqoMyuurfRpitOdjHI6fa_HPjqO7vwn6iFXvhnts47pw";
+const BASE_URL = "http://localhost:8080/";
+const TOKEN = "";
 
 class GasAPI {
   constructor() {
@@ -20,7 +19,7 @@ class GasAPI {
     return `${this.turnsPath}/${turnId}/${action}`;
   }
 
-  getTurns(gasStationId) {
+  getTurns() {
     return this._makeRequest(this.turnsPath);
   }
 

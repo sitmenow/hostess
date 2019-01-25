@@ -6,7 +6,7 @@ import Timer from "./Timer";
 import "./Turn.css";
 
 const Turn = props => {
-  const { _id, plates, completeTurn, expireTurn } = props;
+  const { _id, _expectedArrivalTime, plates, completeTurn, expireTurn } = props;
 
   const completeWithId = () => completeTurn(_id);
 
@@ -18,7 +18,7 @@ const Turn = props => {
         <span>{plates}</span>
       </div>
       <div className="col-md-4 column-entry">
-        <Timer onTime={expireWithId} />
+        <Timer baseTime={_expectedArrivalTime} onTime={expireWithId} />
       </div>
       <div className="col-md-4 column-entry">
         <DefaultButton
@@ -33,6 +33,7 @@ const Turn = props => {
 
 Turn.propTypes = {
   _id: PropTypes.string,
+  _expectedArrivalTime: PropTypes.string,
   plates: PropTypes.string,
   time: PropTypes.string,
   completeTurn: PropTypes.func,

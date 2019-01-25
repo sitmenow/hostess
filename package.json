@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "lint-staged": "^8.0.4",
+    "moment": "^2.24.0",
     "parcel": "^1.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.0-0",

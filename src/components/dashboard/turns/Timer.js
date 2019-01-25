@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+// import moment from "moment";
 
 class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutes: 10,
-      seconds: 0
+      minutes: 0,
+      seconds: 15
     };
   }
 
   componentDidMount() {
+    // const baseDate = moment(this.props.baseTime);
+    // const targetDate = baseDate.clone().add(15, 's');
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -37,7 +40,6 @@ class Timer extends React.Component {
 
   tick() {
     let { minutes, seconds } = this.state;
-
     seconds -= 1;
 
     if (seconds === 0 && minutes === 0) {
