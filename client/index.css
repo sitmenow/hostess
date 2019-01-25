@@ -3,3 +3,23 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.close-icon {
+  text-indent: -9999px;
+  width: 8px;
+  height: 8px;
+  background: url(images/close.svg);
+  background-size: 8px 8px;
+}
+
+*:focus {
+  outline: none;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
