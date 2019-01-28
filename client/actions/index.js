@@ -4,12 +4,13 @@ const API_URL = 'https://sitmenow.herokuapp.com';
 
 export const getGasStationDetail = async (gasStation) => {
   const item = await fetch(`${API_URL}/gasStations/${gasStation._id}`);
-  return item.json();
+  return await item.json();
 }
 
 export const getGasStations = () => (dispatch) => {
   fetch(`${API_URL}/gasStations/`)
     .then(response => response.json())
+    .then(json => Promise.all(json.map(getGasStationDetail)))
     .then((json) => {
       dispatch({
         type: GET_GAS_STATIONS,
