@@ -6,10 +6,10 @@ body {
 
 .close-icon {
   text-indent: -9999px;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: url(images/close.svg);
-  background-size: 8px 8px;
+  background-size: 10px 10px;
 }
 
 *:focus {
