@@ -55,7 +55,7 @@ class ModalRequestTurn extends Component {
       <div className="modal" id="modalContainer">
         <form className="reservation-form" onSubmit={this.onSubmit}>
           <div className="modal-header">
-            <a href="" onClick={this.handleClose}><span className="close-icon pull-right"></span></a>
+            <a href="" onClick={this.handleClose}><span className="icon icon-close pull-right"></span></a>
             <span className="form-title">Reserva tu espacio</span>
             <span className="form-subtitle">{this.props.selectedGasStation._name}</span>
           </div>

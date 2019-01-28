@@ -4,13 +4,34 @@ body {
   padding: 0;
 }
 
-.close-icon {
+.icon {
   text-indent: -9999px;
   width: 10px;
   height: 10px;
+}
+
+.icon.icon-check-circle {
+  background: url(images/check-circle.svg);
+  background-size: 10px 10px;
+}
+.icon.icon-close {
   background: url(images/close.svg);
   background-size: 10px 10px;
 }
+
+
+.icon.icon-close-circle {
+  background: url(images/close-circle.svg);
+  background-size: 10px 10px;
+}
+
+/* .fill-success {
+  fill: #27B357;
+}
+
+.fill-error {
+  fill: #CB1F1F;
+} */
 
 *:focus {
   outline: none;
