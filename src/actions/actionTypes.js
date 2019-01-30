@@ -5,3 +5,10 @@ export const RECEIVE_TURNS = "RECEIVE_TURNS";
 export const TURNS_RECEIVED = "TURNS_RECEIVED";
 export const RESTORE_STATE = "RESTORE_STATE";
 export const REMOVE_TURN = "REMOVE_TURN";
+
+export const authenticationActions = {
+  LOGIN_REQUEST: "LOGIN_REQUEST",
+  LOGIN_SUCESS: "LOGIN_SUCESS",
+  LOGIN_FAILURE: "LOGIN_FAILURE",
+  LOGOUT: "LOGOUT"
+};
